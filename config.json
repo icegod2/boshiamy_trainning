@@ -1,0 +1,6 @@
+{
+  "questions_per_session": 3,
+  "max_failures": 10,
+  "hint_after_failures": 3,
+  "topmost": true
+}
