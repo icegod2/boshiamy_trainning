@@ -1,0 +1,12 @@
+# Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Local user stats and configuration
+stats.json
+config.json
+
+# OS files
+.DS_Store
+Thumbs.db
