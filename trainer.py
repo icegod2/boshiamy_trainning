@@ -17,8 +17,8 @@ CONFIG_FILE = BASE_DIR / "config.json"
 STATS_FILE = BASE_DIR / "stats.json"
 
 DEFAULT_CONFIG = {
-    "questions_per_session": 3,
-    "max_failures": 5,
+    "questions_per_session": 5,
+    "max_failures": 3,
     "hint_after_failures": 3,
     "topmost": True,
 }
