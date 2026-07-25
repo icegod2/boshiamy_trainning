@@ -171,7 +171,10 @@ class TrainerApp:
         self.current_attempts += 1
         if answer == word:
             self.record_result(word, correct=True)
-            self.feedback_label.config(text="答對了！", fg="#008800")
+            if code:
+                self.feedback_label.config(text=f"答對了！編碼：{code}", fg="#008800")
+            else:
+                self.feedback_label.config(text="答對了！", fg="#008800")
             self.index += 1
             if self.index >= len(self.questions):
                 if self.round_wrong:

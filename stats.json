@@ -15,14 +15,14 @@
     "last_seen": 1784964351.0300677
   },
   "塵": {
-    "attempts": 11,
+    "attempts": 12,
     "wrong": 0,
-    "last_seen": 1784962541.4915385
+    "last_seen": 1784966107.1866014
   },
   "薦": {
-    "attempts": 14,
+    "attempts": 15,
     "wrong": 2,
-    "last_seen": 1784964349.404115
+    "last_seen": 1784966133.6780455
   },
   "自": {
     "attempts": 1,
@@ -30,9 +30,9 @@
     "last_seen": 1784963281.3113902
   },
   "非": {
-    "attempts": 7,
+    "attempts": 8,
     "wrong": 3,
-    "last_seen": 1784964375.5880284
+    "last_seen": 1784966125.8651516
   },
   "碼": {
     "attempts": 1,
@@ -40,38 +40,38 @@
     "last_seen": 1784963288.5172672
   },
   "可": {
-    "attempts": 3,
+    "attempts": 4,
     "wrong": 0,
-    "last_seen": 1784964352.7218754
+    "last_seen": 1784966142.6024609
   },
   "第": {
-    "attempts": 4,
+    "attempts": 5,
     "wrong": 1,
-    "last_seen": 1784964347.432693
+    "last_seen": 1784966131.6561103
   },
   "土": {
-    "attempts": 7,
-    "wrong": 6,
-    "last_seen": 1784964360.3800786
+    "attempts": 12,
+    "wrong": 8,
+    "last_seen": 1784966154.9245641
   },
   "們": {
-    "attempts": 4,
+    "attempts": 5,
     "wrong": 3,
-    "last_seen": 1784964356.690008
+    "last_seen": 1784966135.6015186
   },
   "相": {
-    "attempts": 8,
+    "attempts": 9,
     "wrong": 6,
-    "last_seen": 1784964345.192641
+    "last_seen": 1784966138.3832614
   },
   "很": {
-    "attempts": 3,
+    "attempts": 4,
     "wrong": 2,
-    "last_seen": 1784964307.7073178
+    "last_seen": 1784966140.5590525
   },
   "楚": {
-    "attempts": 1,
+    "attempts": 2,
     "wrong": 0,
-    "last_seen": 1784964354.8138142
+    "last_seen": 1784966128.898693
   }
 }
