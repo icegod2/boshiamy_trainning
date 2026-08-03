@@ -132,7 +132,17 @@ class TrainerApp:
         self.feedback_label = tk.Label(root, font=("sans-serif", 14))
         self.feedback_label.pack()
 
-        self.quit_button = tk.Button(root, text="放棄離開", command=self.quit_app)
+        self.limit_actions = tk.Frame(root)
+        self.review_button = tk.Button(
+            self.limit_actions,
+            text="複習剛剛打錯的字",
+            command=self.review_wrong_questions,
+        )
+        self.review_button.pack(side=tk.LEFT, padx=4)
+        self.quit_button = tk.Button(
+            self.limit_actions, text="直接離開", command=self.quit_app
+        )
+        self.quit_button.pack(side=tk.LEFT, padx=4)
 
         self.center_window(420, 340)
         self.show_question()
@@ -230,9 +240,22 @@ class TrainerApp:
     def give_up(self):
         self.can_quit = True
         self.feedback_label.config(
-            text=f"已累計答錯 {self.config['max_failures']} 次，可以離開了", fg="#cc0000"
+            text=(
+                f"已累計答錯 {self.config['max_failures']} 次，"
+                "要複習剛剛打錯的字嗎？"
+            ),
+            fg="#cc0000",
         )
-        self.quit_button.pack(pady=8)
+        self.entry.config(state=tk.DISABLED)
+        self.limit_actions.pack(pady=8)
+
+    def review_wrong_questions(self):
+        """達錯誤上限後，只重新練習剛才答錯過的題目。"""
+        self.can_quit = False
+        self.total_failures = 0
+        self.limit_actions.pack_forget()
+        self.entry.config(state=tk.NORMAL)
+        self.start_retry_round()
 
     def on_close(self):
         if self.can_quit:
