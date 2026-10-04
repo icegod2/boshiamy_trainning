@@ -65,10 +65,21 @@ def save_stats(stats):
 
 
 def pick_questions(words, stats, count):
-    """加權隨機抽題：錯誤率高、久沒練的字權重較高。"""
+    """抽題：沒練過的新字一定先排入，剩下名額再加權隨機抽。
+
+    加權抽題時，錯誤率高、久沒練的字權重較高。
+    """
+    new_words = [item for item in words if not stats.get(item[0], {}).get("attempts")]
+    random.shuffle(new_words)
+    picked = new_words[:count]
+    if len(picked) >= count:
+        return picked
+
     now = time.time()
     weighted = []
     for word, code in words:
+        if (word, code) in picked:
+            continue
         record = stats.get(word, {})
         attempts = record.get("attempts", 0)
         wrong = record.get("wrong", 0)
@@ -79,9 +90,7 @@ def pick_questions(words, stats, count):
         weight = 1.0 + error_rate * 4.0 + min(days_idle * 0.5, 3.0)
         weighted.append(((word, code), weight))
 
-    count = min(count, len(weighted))
-    picked = []
-    for _ in range(count):
+    for _ in range(min(count - len(picked), len(weighted))):
         total = sum(w for _, w in weighted)
         r = random.uniform(0, total)
         cursor = 0.0
@@ -91,6 +100,7 @@ def pick_questions(words, stats, count):
                 picked.append(item)
                 weighted.pop(i)
                 break
+    random.shuffle(picked)  # 新字不要總是排在最前面
     return picked
 
 
